@@ -1,0 +1,41 @@
+class BilanganBulat(object):
+    def __init__(self, nilai):
+        if not isinstance(nilai, int):
+            raise TypeError("Nilai harus bertipe bilangan bulat")
+        self.nilai = nilai
+
+    def __sub__(self, objek):
+        if isinstance(objek, int):
+            return self.nilai - objek
+        elif isinstance(objek, float):
+            return float(self.nilai + objek)
+        elif isinstance(objek, BilanganBulat):
+            return self.nilai - objek.nilai
+        else:
+            raise TypeError("Objek harus bertipe numerik")
+
+    def __div__(self, objek):
+        if isinstance(objek, int):
+            return self.nilai / objek
+        elif isinstance(objek, float):
+            return float(self.nilai + objek)
+        elif isinstance(objek, BilanganBulat):
+            return self.nilai / objek.nilai
+        else:
+            raise TypeError("Objek harus bertipe numerik")
+
+def main():
+    a = BilanganBulat(10)
+    b = 20
+
+    c = 30
+
+    d = 40.75
+
+    print("b - c: ", b - c)
+    print("a - c: ", a - c)
+    print("c / d: ", c / d)
+    print("d / b: ", d / b)
+
+if __name__ == "__main__":
+   main()
